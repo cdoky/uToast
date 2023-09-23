@@ -174,7 +174,9 @@ extension ViewController {
             self.navigationController?.view.makeToast("This is a piece of toast with a title", duration: 2.0, position: .top(20), title: "Toast Title", image: nil)
         case 3:
             // Make toast with an image
-            self.navigationController?.view.makeToast("This is a piece of toast with an image", duration: 2.0, position: .center(20), title: nil, image: UIImage(named: "toast.png"))
+            var style = ToastStyle()
+            style.spacing = 5
+            self.navigationController?.view.makeToast("This is a piece of toast with an image", duration: 2.0, position: .center(20), title: nil, image: UIImage(named: "toast.png"), style: style)
         case 4:
             // Make toast with an image, title, and completion closure
             self.navigationController?.view.makeToast("This is a piece of toast with a title, image, and completion closure", duration: 2.0, position: .bottom(20), title: "Toast Title", image: UIImage(named: "toast.png")) { didTap in
