@@ -168,16 +168,16 @@ extension ViewController {
              self.navigationController?.view.makeToast("This is a piece of toast")
         case 1:
             // Make toast with a duration and position
-            self.navigationController?.view.makeToast("This is a piece of toast on top for 3 seconds", duration: 3.0, position: .top)
+            self.navigationController?.view.makeToast("This is a piece of toast on top for 3 seconds", duration: 3.0, position: .top(10))
         case 2:
             // Make toast with a title
-            self.navigationController?.view.makeToast("This is a piece of toast with a title", duration: 2.0, position: .top, title: "Toast Title", image: nil)
+            self.navigationController?.view.makeToast("This is a piece of toast with a title", duration: 2.0, position: .top(20), title: "Toast Title", image: nil)
         case 3:
             // Make toast with an image
-            self.navigationController?.view.makeToast("This is a piece of toast with an image", duration: 2.0, position: .center, title: nil, image: UIImage(named: "toast.png"))
+            self.navigationController?.view.makeToast("This is a piece of toast with an image", duration: 2.0, position: .center(20), title: nil, image: UIImage(named: "toast.png"))
         case 4:
             // Make toast with an image, title, and completion closure
-            self.navigationController?.view.makeToast("This is a piece of toast with a title, image, and completion closure", duration: 2.0, position: .bottom, title: "Toast Title", image: UIImage(named: "toast.png")) { didTap in
+            self.navigationController?.view.makeToast("This is a piece of toast with a title, image, and completion closure", duration: 2.0, position: .bottom(20), title: "Toast Title", image: UIImage(named: "toast.png")) { didTap in
                 if didTap {
                     print("completion from tap")
                 } else {
@@ -191,13 +191,13 @@ extension ViewController {
             style.messageColor = UIColor.red
             style.messageAlignment = .center
             style.backgroundColor = UIColor.yellow
-            self.navigationController?.view.makeToast("This is a piece of toast with a custom style", duration: 3.0, position: .bottom, style: style)
+            self.navigationController?.view.makeToast("This is a piece of toast with a custom style", duration: 3.0, position: .bottom(20), style: style)
         case 6:
             // Show a custom view as toast
             let customView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 80.0, height: 400.0))
             customView.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin, .flexibleTopMargin, .flexibleBottomMargin]
             customView.backgroundColor = .lightBlue
-            self.navigationController?.view.showToast(customView, duration: 2.0, position: .center)
+            self.navigationController?.view.showToast(customView, duration: 2.0, position: .center(30))
         case 7:
             // Show an image view as toast, on center at point (110,110)
             let toastView = UIImageView(image: UIImage(named: "toast.png"))
@@ -205,7 +205,7 @@ extension ViewController {
         case 8:
             // Make toast activity
             if !showingActivity {
-                self.navigationController?.view.makeToastActivity(.center)
+                self.navigationController?.view.makeToastActivity(.center(20))
             } else {
                 self.navigationController?.view.hideToastActivity()
             }
